@@ -39,15 +39,15 @@ app.get('/api/health', (req, res) => {
 
 // Fallback to React index.html for SPA routing
 app.get('*', (req, res) => {
-  if (req.accepts('html')) {
-    const reactIndex = path.join(distPath, 'index.html');
-    if (fs.existsSync(reactIndex)) {
-      return res.sendFile(reactIndex);
-    }
-    res.sendFile(path.join(publicPath, 'index.html'));
-  } else {
-    res.status(404).json({ error: 'Not Found' });
+  const reactIndex = path.join(distPath, 'index.html');
+  if (fs.existsSync(reactIndex)) {
+    return res.sendFile(reactIndex);
   }
+  const publicIndex = path.join(publicPath, 'index.html');
+  if (fs.existsSync(publicIndex)) {
+    return res.sendFile(publicIndex);
+  }
+  res.status(404).send('App index.html not found. Please run npm run build in app_build.');
 });
 
 // Start Server
