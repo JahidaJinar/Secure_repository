@@ -1,7 +1,6 @@
 node_modules/
 app_build/node_modules/
 app_build/uploads/*
-app_build/dist/
 .env
 app_build/.env
 *.log

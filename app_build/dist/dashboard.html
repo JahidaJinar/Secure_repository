@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author Dashboard | EdTech Secure Project Repository</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="/index.html" class="brand">
+      <div class="brand-icon">🛡️</div>
+      <span class="brand-title">EdTech Secure Repo</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html" class="nav-link">📁 Repository</a></li>
+      <li><a href="/upload.html" class="nav-link">🔒 Upload Project</a></li>
+      <li><a href="/dashboard.html" class="nav-link active">📊 Dashboard</a></li>
+      <li id="userNavBadge"></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    
+    <header style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h1 style="font-family: var(--font-heading); font-size: 2rem;">Author Access Control Dashboard</h1>
+        <div style="color: var(--text-muted); font-size: 0.95rem;" id="dashAuthorEmail">Loading profile...</div>
+      </div>
+      <a href="/upload.html" class="btn btn-primary">➕ Encrypt & Upload Project</a>
+    </header>
+
+    <!-- Incoming Access Requests Section -->
+    <section class="dash-section">
+      <div class="dash-title">
+        <span>📬 Incoming Access Requests (Your Projects)</span>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+        Review and authorize pending student/faculty access requests for projects you authored.
+      </p>
+      <div id="incomingRequestsContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading access requests...</div>
+      </div>
+    </section>
+
+    <!-- Author's Uploaded Projects Section -->
+    <section class="dash-section">
+      <div class="dash-title">
+        <span>📂 My Authored Projects</span>
+      </div>
+      <div id="myProjectsContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading your projects...</div>
+      </div>
+    </section>
+
+    <!-- My Outgoing Requested Projects Section -->
+    <section class="dash-section">
+      <div class="dash-title">
+        <span>🔑 Projects You Requested Access To</span>
+      </div>
+      <div id="myRequestedProjectsContainer">
+        <div style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading requested projects...</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Dashboard Decrypt & Download Modal -->
+  <div class="modal-backdrop" id="dashDecryptModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">🔓 Decrypt Project Archive</h2>
+        <button class="close-btn" onclick="closeDashModal()">&times;</button>
+      </div>
+      <p style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-muted);">
+        Decrypting <strong id="dashModalProjectTitle" style="color: #fff;"></strong> client-side.
+      </p>
+      <div class="form-group">
+        <label class="form-label">Enter Secret Encryption Password</label>
+        <input type="password" id="dashDecryptPassword" class="form-input" placeholder="Secret Key..." required>
+      </div>
+      <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1.5rem;">
+        <button type="button" class="btn btn-secondary" onclick="closeDashModal()">Cancel</button>
+        <button type="button" id="dashStartDecryptBtn" onclick="handleDashDecryptDownload()" class="btn btn-success">🔓 Decrypt & Download</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    EdTech Secure Project Repository &copy; 2026 Department of EdTech.
+  </footer>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/crypto-utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
