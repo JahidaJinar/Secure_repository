@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register | EdTech Secure Project Repository</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="/index.html" class="brand">
+      <div class="brand-icon">🛡️</div>
+      <span class="brand-title">EdTech Secure Repo</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html" class="nav-link">📁 Repository</a></li>
+      <li><a href="/upload.html" class="nav-link">🔒 Upload Project</a></li>
+      <li><a href="/dashboard.html" class="nav-link">📊 Dashboard</a></li>
+      <li id="userNavBadge"></li>
+    </ul>
+  </nav>
+
+  <div class="container" style="max-width: 480px; padding-top: 3rem;">
+    
+    <!-- Login Card -->
+    <div class="dash-section" id="loginCard">
+      <div class="dash-title">🔐 Firebase User Authentication</div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+        Sign in to upload projects, manage requests, or access authorized files.
+      </p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label">Department Email Address</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="e.g. author@dept.edu.bd" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Log In</button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+        Don't have an account? <a href="#" id="toggleRegister" style="color: var(--primary); text-decoration: none; font-weight: 600;">Register Here</a>
+      </div>
+    </div>
+
+    <!-- Registration Card -->
+    <div class="dash-section" id="registerCard" style="display: none;">
+      <div class="dash-title">👤 Create Student / Faculty Account</div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+        Register your account to author projects and manage access requests.
+      </p>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="regName" class="form-input" placeholder="e.g. Tanvir Ahmed" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Department Email</label>
+          <input type="email" id="regEmail" class="form-input" placeholder="student@dept.edu.bd" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Account Password</label>
+          <input type="password" id="regPassword" class="form-input" placeholder="Minimum 6 characters" required>
+        </div>
+
+        <button type="submit" class="btn btn-success" style="width: 100%; margin-top: 1rem;">Create Account</button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+        Already registered? <a href="#" id="toggleLogin" style="color: var(--primary); text-decoration: none; font-weight: 600;">Log In</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    EdTech Secure Project Repository &copy; 2026 Department of EdTech.
+  </footer>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

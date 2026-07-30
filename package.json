@@ -1,0 +1,11 @@
+{
+  "name": "edtech-project-hub-root",
+  "version": "1.0.0",
+  "description": "EdTech Secure Project Repository Root Workspace",
+  "scripts": {
+    "start": "npm --prefix app_build start",
+    "dev": "npm --prefix app_build run dev",
+    "build": "npm --prefix app_build run build",
+    "postinstall": "npm --prefix app_build install"
+  }
+}

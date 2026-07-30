@@ -1,0 +1,66 @@
+[
+  {
+    "uid": "uid_amFoaWRhMDAwMUBnbWFpbC5jb20",
+    "email": "jahida0001@gmail.com",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "Jahida Khanom",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:31:49.810Z"
+  },
+  {
+    "uid": "uid_am9iaWRhQGdtYWlsLmNvbQ",
+    "email": "jobida@gmail.com",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "Jobida Khanom",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:32:22.457Z"
+  },
+  {
+    "uid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "email": "jahida0001@std.uftb.ac.bd",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "Jahida Khanom Jinar",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:35:30.441Z"
+  },
+  {
+    "uid": "uid_amluaWFAZ21haWwuY29t",
+    "email": "jinia@gmail.com",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "jinia",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:37:45.596Z"
+  },
+  {
+    "uid": "uid_amFmYXJAZ21haWwuY29t",
+    "email": "jafar@gmail.com",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "jafar",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:39:23.339Z"
+  },
+  {
+    "uid": "uid_bnVoYUBzdGQudWZ0Yi5hYy5iZA",
+    "email": "nuha@std.uftb.ac.bd",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "Fariha Nuha",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:40:12.717Z"
+  },
+  {
+    "uid": "uid_bWFyaWFAZ21haWwuY29t",
+    "email": "maria@gmail.com",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "maria",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:40:45.042Z"
+  },
+  {
+    "uid": "uid_amFoaWRha2hhbm9tMjAwMkBnbWFpbC5jb20",
+    "email": "jahidakhanom2002@gmail.com",
+    "passwordHash": "17ec92c4d615ab6cd2da2267eeaa75fe638c4d7ee89bdad8393a693da160b7c1",
+    "displayName": "Jahida Khanom",
+    "isAuthor": true,
+    "createdAt": "2026-07-30T15:58:23.030Z"
+  }
+]

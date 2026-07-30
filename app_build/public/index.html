@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EdTech Secure Project Repository | Department Cloud</title>
+  <meta name="description" content="Zero-Knowledge Cloud-Based Secure Project Repository with Client-Side AES-256 Encryption for Department Projects across all batches.">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- CryptoJS Library for Client-Side AES-256 Encryption -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="/index.html" class="brand">
+      <div class="brand-icon">🛡️</div>
+      <span class="brand-title">EdTech Secure Repo</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html" class="nav-link active">📁 Repository</a></li>
+      <li><a href="/upload.html" class="nav-link">🔒 Upload Project</a></li>
+      <li><a href="/dashboard.html" class="nav-link">📊 Dashboard</a></li>
+      <li id="userNavBadge"></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Container -->
+  <div class="container">
+    
+    <!-- Hero Banner -->
+    <header class="hero-banner">
+      <div class="zero-knowledge-badge">
+        <span>🔐 Zero-Knowledge Security Architecture</span>
+      </div>
+      <h1 class="hero-title" style="margin-top: 1rem;">Department Project Repository</h1>
+      <p class="hero-subtitle">
+        Secure academic archive for Educational, Technical, EdTech, and Thesis projects across all student batches. Files are encrypted client-side using AES-256 before reaching the cloud.
+      </p>
+    </header>
+
+    <!-- Controls Bar (Category Tabs, Batch Filter, Search) -->
+    <section class="controls-bar">
+      <div class="category-tabs">
+        <button class="category-btn active" data-category="all">All Projects</button>
+        <button class="category-btn" data-category="Educational Projects">📖 Educational</button>
+        <button class="category-btn" data-category="Technical Projects">⚡ Technical</button>
+        <button class="category-btn" data-category="EdTech Projects">🚀 EdTech</button>
+        <button class="category-btn" data-category="Thesis Projects">🔬 Thesis</button>
+      </div>
+
+      <div class="filter-group">
+        <select id="batchFilter" class="select-input" style="max-width: 150px;">
+          <option value="all">🎓 All Batches</option>
+          <option value="1st Batch">1st Batch</option>
+          <option value="2nd Batch">2nd Batch</option>
+          <option value="3rd Batch">3rd Batch</option>
+          <option value="4th Batch">4th Batch</option>
+          <option value="5th Batch">5th Batch</option>
+          <option value="6th Batch">6th Batch</option>
+          <option value="7th Batch">7th Batch</option>
+          <option value="8th Batch">8th Batch</option>
+        </select>
+        <input type="search" id="searchInput" name="query_search_repo_filter" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" class="search-input" placeholder="🔍 Search title, author, keywords...">
+      </div>
+    </section>
+
+    <!-- Projects Grid Container -->
+    <main class="projects-grid" id="projectsGrid">
+      <!-- Dynamically populated by app.js -->
+    </main>
+
+  </div>
+
+  <!-- Project Details Modal -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Project Overview</h2>
+        <button class="close-btn close-modal">&times;</button>
+      </div>
+      <div style="margin-bottom: 1.25rem;">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+          <span class="category-badge badge-edtech" id="modalCategory">Category</span>
+          <span class="batch-pill" id="modalBatch">Batch</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;" id="modalDesc"></p>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.85rem;">
+          <div>👤 Author: <strong id="modalAuthor"></strong></div>
+          <div style="margin-top: 0.25rem;">📄 File: <code id="modalFileName"></code></div>
+        </div>
+      </div>
+      <div style="text-align: right;">
+        <button class="btn btn-secondary close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Request Access Modal -->
+  <div class="modal-backdrop" id="requestModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">🔑 Request Access</h2>
+        <button class="close-btn close-modal">&times;</button>
+      </div>
+      <form id="requestAccessForm">
+        <p style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-muted);">
+          You are requesting permission to access and decrypt <strong id="reqProjectTitle" style="color: #fff;"></strong>.
+        </p>
+        <div class="form-group">
+          <label class="form-label">Project Author</label>
+          <div id="reqAuthorEmail" style="color: var(--secondary); font-weight: 600;"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Email Address</label>
+          <input type="email" id="requesterUserEmail" class="form-input" readonly required>
+        </div>
+        <div class="form-hint" style="margin-bottom: 1.5rem;">
+          The author will review your request in their dashboard. Once approved, you will be able to unlock the encrypted payload.
+        </div>
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+          <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Decrypt & Download Modal -->
+  <div class="modal-backdrop" id="decryptModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">🔓 Decrypt & Download Project</h2>
+        <button class="close-btn close-modal">&times;</button>
+      </div>
+      <p style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-muted);">
+        Decryption for <strong id="decryptProjectTitle" style="color: #fff;"></strong> happens zero-knowledge inside your browser using <strong>CryptoJS AES-256</strong>.
+      </p>
+      <div class="form-group">
+        <label class="form-label">Enter Secret Encryption Password</label>
+        <input type="password" id="decryptPasswordInput" class="form-input" placeholder="Secret Key set by author..." required>
+        <div class="form-hint">Only the author holds the password key. Enter it to decrypt the file payload.</div>
+      </div>
+      <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1.5rem;">
+        <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+        <button type="button" id="startDecryptBtn" onclick="triggerDecryptedDownload()" class="btn btn-success">🔓 Decrypt & Download</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    EdTech Secure Project Repository &copy; 2026 Department of EdTech. Client-Side AES-256 Encrypted & Author Authorized.
+  </footer>
+
+  <!-- Client Scripts -->
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/crypto-utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Encrypted Project | EdTech Secure Project Repository</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="/index.html" class="brand">
+      <div class="brand-icon">🛡️</div>
+      <span class="brand-title">EdTech Secure Repo</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html" class="nav-link">📁 Repository</a></li>
+      <li><a href="/upload.html" class="nav-link active">🔒 Upload Project</a></li>
+      <li><a href="/dashboard.html" class="nav-link">📊 Dashboard</a></li>
+      <li id="userNavBadge"></li>
+    </ul>
+  </nav>
+
+  <div class="container" style="max-width: 800px;">
+    
+    <div class="dash-section">
+      <div class="dash-title">
+        <span>🔒 Client-Side Encrypted Project Upload</span>
+      </div>
+
+      <div class="zero-knowledge-badge" style="margin-bottom: 1.5rem;">
+        <span>🛡️ Zero-Knowledge Arch: File is encrypted in your browser before upload</span>
+      </div>
+
+      <form id="projectUploadForm" autocomplete="off">
+        
+        <!-- Project Title -->
+        <div class="form-group">
+          <label class="form-label">Project Title *</label>
+          <input type="text" id="projectTitle" name="upload_project_title_name" autocomplete="new-password" readonly onfocus="this.removeAttribute('readonly');" class="form-input" placeholder="e.g. AI-Based Adaptive Learning & Quiz Recommendation Engine" required>
+        </div>
+
+        <!-- Category & Batch Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          
+          <div class="form-group">
+            <label class="form-label">Project Category *</label>
+            <select id="projectCategory" class="select-input" required>
+              <option value="">Select Category...</option>
+              <option value="Educational Projects">📖 Educational Projects (শিক্ষামূলক)</option>
+              <option value="Technical Projects">⚡ Technical Projects (টেকনিক্যাল)</option>
+              <option value="EdTech Projects">🚀 EdTech Projects (এডটেক)</option>
+              <option value="Thesis Projects">🔬 Thesis Projects (থিসিস)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Academic Batch *</label>
+            <select id="projectBatch" class="select-input" required>
+              <option value="">Select Batch...</option>
+              <option value="1st Batch">1st Batch</option>
+              <option value="2nd Batch">2nd Batch</option>
+              <option value="3rd Batch">3rd Batch</option>
+              <option value="4th Batch">4th Batch</option>
+              <option value="5th Batch">5th Batch</option>
+              <option value="6th Batch">6th Batch</option>
+              <option value="7th Batch">7th Batch</option>
+              <option value="8th Batch">8th Batch</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Detailed Description -->
+        <div class="form-group">
+          <label class="form-label">Detailed Description / Abstract</label>
+          <textarea id="projectDescription" class="form-textarea" rows="4" placeholder="Brief explanation of project scope, methodology, key findings, and technology stack..."></textarea>
+        </div>
+
+        <!-- File Upload Selector -->
+        <div class="form-group" style="background: rgba(0,0,0,0.2); border: 2px dashed var(--border-color); padding: 1.5rem; border-radius: 14px; text-align: center;">
+          <label class="form-label" style="font-size: 1.05rem; cursor: pointer;">
+            📁 Select Project Archive / Document File (.zip, .pdf, .docx, .rar) *
+          </label>
+          <input type="file" id="projectFile" class="form-input" style="margin-top: 0.75rem;" required>
+          <div class="form-hint" style="margin-top: 0.5rem;">Maximum size: 50MB. File content will be encrypted client-side.</div>
+        </div>
+
+        <!-- Secret Encryption Password -->
+        <div class="form-group" style="background: rgba(99, 102, 241, 0.08); border: 1px solid var(--border-highlight); padding: 1.25rem; border-radius: 14px;">
+          <label class="form-label" style="color: #c7d2fe;">🔑 Set Secret Encryption Password (AES-256) *</label>
+          <input type="password" id="encryptionPassword" name="upload_secret_enc_key" autocomplete="new-password" class="form-input" placeholder="Create a secret key for this file payload..." required>
+          <div class="form-hint" style="color: #a5b4fc; margin-top: 0.4rem;">
+            <strong>CRITICAL:</strong> Keep this password safe! You are the Author. The system does NOT store your password. Users who request access will need this password from you to decrypt the file.
+          </div>
+        </div>
+
+        <div id="uploadStatusText" style="margin-top: 1rem; font-weight: 600; color: var(--secondary);"></div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+          <a href="/index.html" class="btn btn-secondary">Cancel</a>
+          <button type="submit" id="submitUploadBtn" class="btn btn-primary" style="padding: 0.75rem 1.75rem;">🔒 Encrypt & Upload Project</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    EdTech Secure Project Repository &copy; 2026 Department of EdTech.
+  </footer>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/crypto-utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/upload.js"></script>
+</body>
+</html>

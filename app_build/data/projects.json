@@ -1,0 +1,327 @@
+[
+  {
+    "id": "99a66894-7aea-4405-bb0e-001b8638830a",
+    "title": "bhjh",
+    "category": "Educational Projects",
+    "batch": "5th Batch",
+    "description": "",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "jahida0001@std.uftb.ac.bd",
+    "authorName": "Jahida Khanom Jinar",
+    "fileId": "c5647c7b-deb1-4730-b62e-a6ec9898e360",
+    "fileName": "EdTE (OBE Curriculum) .pdf.enc",
+    "driveUrl": "/api/drive/download/c5647c7b-deb1-4730-b62e-a6ec9898e360",
+    "passwordKey": "hjh",
+    "createdAt": "2026-07-30T16:38:18.080Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_amFoaWRha2hhbm9tMjAwMkBnbWFpbC5jb20",
+        "requesterEmail": "jahidakhanom2002@gmail.com",
+        "requesterName": "Jahida Khanom",
+        "status": "pending",
+        "requestedAt": "2026-07-30T16:38:36.784Z"
+      }
+    ]
+  },
+  {
+    "id": "19d1611e-9669-4f11-be68-ca95a1a30887",
+    "title": "Education",
+    "category": "Educational Projects",
+    "batch": "5th Batch",
+    "description": "",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "jahida0001@std.uftb.ac.bd",
+    "authorName": "Jahida Khanom Jinar",
+    "fileId": "091c3e0e-2709-4793-8c94-d19acf301667",
+    "fileName": "Literature review.pdf.enc",
+    "driveUrl": "/api/drive/download/091c3e0e-2709-4793-8c94-d19acf301667",
+    "passwordKey": "dbjdb",
+    "createdAt": "2026-07-30T15:51:04.175Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "fariha0002@std.uftb.ac.bd",
+        "requesterName": "Fariha Nuha",
+        "status": "approved",
+        "requestedAt": "2026-07-30T15:51:17.020Z",
+        "updatedAt": "2026-07-30T15:51:28.928Z"
+      },
+      {
+        "requesterUid": "uid_amFoaWRha2hhbm9tMjAwMkBnbWFpbC5jb20",
+        "requesterEmail": "jahidakhanom2002@gmail.com",
+        "requesterName": "Jahida Khanom",
+        "status": "pending",
+        "requestedAt": "2026-07-30T15:59:01.667Z"
+      }
+    ]
+  },
+  {
+    "id": "01761e94-0d08-45ef-b201-287e5bb11a1b",
+    "title": "AI Based Learning",
+    "category": "Technical Projects",
+    "batch": "5th Batch",
+    "description": "Thus is an interactive project .",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQuYmR1LmFjLmJk",
+    "authorEmail": "jahida0001@std.bdu.ac.bd",
+    "authorName": "jahida0001",
+    "fileId": "33c55260-e4e0-4525-ba45-483209aab0b0",
+    "fileName": "UFTB_Moodle_Git.zip.enc",
+    "driveUrl": "/api/drive/download/33c55260-e4e0-4525-ba45-483209aab0b0",
+    "passwordKey": "ghjk",
+    "createdAt": "2026-07-30T14:51:21.869Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "fariha0002@std.uftb.ac.bd",
+        "requesterName": "Fariha Nuha",
+        "status": "approved",
+        "requestedAt": "2026-07-30T14:52:32.379Z",
+        "updatedAt": "2026-07-30T14:52:52.127Z"
+      },
+      {
+        "requesterUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "jahida0001@std.uftb.ac.bd",
+        "requesterName": "Jahida Khanom Jinar",
+        "status": "pending",
+        "requestedAt": "2026-07-30T15:44:24.899Z"
+      },
+      {
+        "requesterUid": "uid_amFoaWRha2hhbm9tMjAwMkBnbWFpbC5jb20",
+        "requesterEmail": "jahidakhanom2002@gmail.com",
+        "requesterName": "Jahida Khanom",
+        "status": "pending",
+        "requestedAt": "2026-07-30T16:15:49.556Z"
+      }
+    ]
+  },
+  {
+    "id": "7f770aba-6f66-4294-8a73-f72ef014ba4f",
+    "title": "AI based  learninh",
+    "category": "Technical Projects",
+    "batch": "5th Batch",
+    "description": "zbcjhbc shbcjh jhjhbbcjhs hhcjhs",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "jahida0001@std.uftb.ac.bd",
+    "authorName": "jahida0001",
+    "fileId": "9665d3a5-6987-4f76-8857-079d0d0f0faa",
+    "fileName": "DHCP(2).pkt.enc",
+    "driveUrl": "/api/drive/download/9665d3a5-6987-4f76-8857-079d0d0f0faa",
+    "passwordKey": "45678",
+    "createdAt": "2026-07-30T14:32:26.096Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "fariha0002@std.uftb.ac.bd",
+        "requesterName": "Fariha Nuha",
+        "status": "approved",
+        "requestedAt": "2026-07-30T14:33:34.006Z",
+        "updatedAt": "2026-07-30T14:33:42.559Z"
+      }
+    ]
+  },
+  {
+    "id": "1a66391e-8a87-47bb-a553-d08f047fd9d3",
+    "title": "gydyugdyughduh",
+    "category": "Technical Projects",
+    "batch": "5th Batch",
+    "description": "",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "jahida0001@std.uftb.ac.bd",
+    "authorName": "jahida0001",
+    "fileId": "a982d7a0-fee4-4327-8c94-8a86eb13f02f",
+    "fileName": "DHCP(2).pkt.enc",
+    "driveUrl": "/api/drive/download/a982d7a0-fee4-4327-8c94-8a86eb13f02f",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-30T06:31:55.697Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "fariha0002@std.uftb.ac.bd",
+        "requesterName": "Fariha Nuha",
+        "status": "approved",
+        "requestedAt": "2026-07-30T14:13:46.114Z",
+        "updatedAt": "2026-07-30T14:20:02.920Z"
+      }
+    ]
+  },
+  {
+    "id": "d6a5e469-18d1-42a4-a88b-19968beb9315",
+    "title": "Adpative learning",
+    "category": "Educational Projects",
+    "batch": "5th Batch",
+    "description": "",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "jahida0001@std.uftb.ac.bd",
+    "authorName": "jahida0001",
+    "fileId": "0c3ff876-91f8-41ec-b187-1e168e10fe5f",
+    "fileName": "ChatGPT Image Jul 13, 2026, 10_18_40 PM.png.enc",
+    "driveUrl": "/api/drive/download/0c3ff876-91f8-41ec-b187-1e168e10fe5f",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T17:25:30.126Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "fariha0002@std.uftb.ac.bd",
+        "requesterName": "Fariha Nuha",
+        "status": "approved",
+        "requestedAt": "2026-07-28T17:26:41.083Z",
+        "updatedAt": "2026-07-28T17:26:57.204Z"
+      }
+    ]
+  },
+  {
+    "id": "403e87ed-3e83-49df-8c5e-e3ee1bd3a312",
+    "title": "STEAM based application system",
+    "category": "Technical Projects",
+    "batch": "5th Batch",
+    "description": "gy74y4fyg4fyug4ruf  jhgfuyegfuerfuyer jgfuyegfuyu7rr7r7yg jhrfygjrfgr",
+    "authorUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "fariha0002@std.uftb.ac.bd",
+    "authorName": "Fariha Nuha",
+    "fileId": "6ea7a3a6-c54c-4b72-8697-166a1ffa50c9",
+    "fileName": "A Day in New York City -- Read with You Center for Excellence in STEAM Education -- 2022 -- Read With You Publishing -- isbn13 9798886181340 -- 29c1b922a75263d9a2ff0526160e876c -- Anna’s Archive.pdf.enc",
+    "driveUrl": "/api/drive/download/6ea7a3a6-c54c-4b72-8697-166a1ffa50c9",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T15:17:04.427Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "jahida0001@std.uftb.ac.bd",
+        "requesterName": "jahida0001",
+        "status": "approved",
+        "requestedAt": "2026-07-28T15:18:10.093Z",
+        "updatedAt": "2026-07-28T15:18:37.404Z"
+      }
+    ]
+  },
+  {
+    "id": "ff1516ab-8973-4073-8734-cd9339e49548",
+    "title": "Ai based machine learninh",
+    "category": "Educational Projects",
+    "batch": "5th Batch",
+    "description": "dhdgyh bhghguib hkl  nehje  ekjvyefhd2oi8 bgwideio hegui uegui hgiug \nhgic ugi iuuhouf uihiu kuhuiepheeh ihfh hrofrbrh ihf ehv",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "jahida0001@std.uftb.ac.bd",
+    "authorName": "jahida0001",
+    "fileId": "e087fe46-67c6-4c63-8f1d-02c4fc8e27a8",
+    "fileName": "CDD Lecture 6 .pdf.enc",
+    "driveUrl": "/api/drive/download/e087fe46-67c6-4c63-8f1d-02c4fc8e27a8",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T07:38:34.299Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "fariha0002@std.uftb.ac.bd",
+        "requesterName": "Fariha Nuha",
+        "status": "rejected",
+        "requestedAt": "2026-07-28T07:39:11.040Z",
+        "updatedAt": "2026-07-28T15:15:06.685Z"
+      }
+    ]
+  },
+  {
+    "id": "5bd41ddb-39f1-4948-9fa6-e59e7f7edde3",
+    "title": "jahida0001@std.uftb.ac.bd",
+    "category": "Educational Projects",
+    "batch": "5th Batch",
+    "description": "curriculum",
+    "authorUid": "uid_amFoaWRhMDAwMUBzdGQudWZ0Yi5hYy5iZA",
+    "authorEmail": "jahida0001@std.uftb.ac.bd",
+    "authorName": "jahida0001",
+    "fileId": "dca418f9-f96a-4bc4-9687-31bef932e351",
+    "fileName": "CDD Lecture 6 .pdf.enc",
+    "driveUrl": "/api/drive/download/dca418f9-f96a-4bc4-9687-31bef932e351",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T06:38:26.115Z",
+    "accessRequests": [
+      {
+        "requesterUid": "uid_dGhlYmFAZ21haWwuY29t",
+        "requesterEmail": "theba@gmail.com",
+        "requesterName": "theba",
+        "status": "rejected",
+        "requestedAt": "2026-07-28T06:50:02.248Z",
+        "updatedAt": "2026-07-28T07:37:15.884Z"
+      },
+      {
+        "requesterUid": "uid_ZmFyaWhhMDAwMkBzdGQudWZ0Yi5hYy5iZA",
+        "requesterEmail": "fariha0002@std.uftb.ac.bd",
+        "requesterName": "Fariha Nuha",
+        "status": "rejected",
+        "requestedAt": "2026-07-28T06:53:32.315Z",
+        "updatedAt": "2026-07-28T15:15:08.791Z"
+      }
+    ]
+  },
+  {
+    "id": "demo-proj-1",
+    "title": "Smart Classroom Attendance & Analytics Platform",
+    "category": "EdTech Projects",
+    "batch": "3rd Batch",
+    "description": "An automated facial recognition and analytics dashboard for real-time lecture attendance tracking.",
+    "authorUid": "demo-user-101",
+    "authorEmail": "author@dept.edu.bd",
+    "authorName": "Tanvir Ahmed",
+    "fileId": "sample-file-1",
+    "fileName": "Classroom_Analytics_Documentation.pdf.enc",
+    "driveUrl": "/api/drive/download/sample-file-1",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T05:43:42.257Z",
+    "accessRequests": [
+      {
+        "requesterUid": "user-202",
+        "requesterEmail": "student@dept.edu.bd",
+        "requesterName": "Nusrat Jahan",
+        "status": "pending",
+        "requestedAt": "2026-07-28T05:43:42.258Z"
+      }
+    ]
+  },
+  {
+    "id": "demo-proj-2",
+    "title": "Optimized Blockchain Protocol for Academic Credential Verification",
+    "category": "Thesis Projects",
+    "batch": "1st Batch",
+    "description": "A decentralized thesis submission and transcript validation system built on Ethereum Smart Contracts.",
+    "authorUid": "demo-user-102",
+    "authorEmail": "prof.karim@dept.edu.bd",
+    "authorName": "Dr. Fazlul Karim",
+    "fileId": "sample-file-2",
+    "fileName": "Thesis_Blockchain_Verification.zip.enc",
+    "driveUrl": "/api/drive/download/sample-file-2",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T05:43:42.258Z",
+    "accessRequests": []
+  },
+  {
+    "id": "demo-proj-3",
+    "title": "Interactive Circuit Simulation Lab for Microelectronics",
+    "category": "Educational Projects",
+    "batch": "4th Batch",
+    "description": "Virtual physics and circuit simulation environment with real-time waveform visualization.",
+    "authorUid": "demo-user-101",
+    "authorEmail": "author@dept.edu.bd",
+    "authorName": "Tanvir Ahmed",
+    "fileId": "sample-file-3",
+    "fileName": "Circuit_Lab_Engine.rar.enc",
+    "driveUrl": "/api/drive/download/sample-file-3",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T05:43:42.258Z",
+    "accessRequests": []
+  },
+  {
+    "id": "demo-proj-4",
+    "title": "AI-Powered Automated Code Grading Engine",
+    "category": "Technical Projects",
+    "batch": "2nd Batch",
+    "description": "Sandboxed compiler and unit test executor supporting C++, Python, and Java submissions.",
+    "authorUid": "demo-user-103",
+    "authorEmail": "rahim@dept.edu.bd",
+    "authorName": "Abdur Rahim",
+    "fileId": "sample-file-4",
+    "fileName": "Autograder_Core.zip.enc",
+    "driveUrl": "/api/drive/download/sample-file-4",
+    "passwordKey": "123456",
+    "createdAt": "2026-07-28T05:43:42.258Z",
+    "accessRequests": []
+  }
+]
