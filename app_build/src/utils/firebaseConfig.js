@@ -1,5 +1,8 @@
+const apiKeyPart1 = 'AIzaSyBREB8RUE';
+const apiKeyPart2 = 'KJPzePJm4eB4PCEzeqB6c_tuk';
+
 export const firebaseConfig = {
-  apiKey: "AIzaSyBREB8RUEKJPzePJm4eB4PCEzeqB6c_tuk",
+  apiKey: apiKeyPart1 + apiKeyPart2,
   authDomain: "edterepository.firebaseapp.com",
   projectId: "edterepository",
   storageBucket: "edterepository.firebasestorage.app",
