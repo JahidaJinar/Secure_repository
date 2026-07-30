@@ -634,3 +634,160 @@ body::before {
   font-size: 0.88rem;
   margin-top: 3.5rem;
 }
+
+/* Responsive Hamburger Toggle & Mobile Menu Drawer */
+.hamburger-toggle {
+  display: none;
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  font-size: 1.4rem;
+  color: var(--text-main);
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hamburger-toggle:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 900px) {
+  .hamburger-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 1.5rem;
+    left: 1.5rem;
+    background: #A6BEA3;
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    box-shadow: 0 16px 40px rgba(35, 44, 34, 0.25);
+    display: none;
+    z-index: 1000;
+    animation: fadeInDown 0.25s ease forwards;
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-link {
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .user-profile-badge {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-radius: 16px;
+    width: 100%;
+  }
+
+  .user-info-text {
+    word-break: break-all;
+    font-size: 0.82rem;
+  }
+
+  .controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .category-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select-input, .search-input {
+    max-width: 100% !important;
+    width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .modal-content {
+    width: 92% !important;
+    padding: 1.35rem !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .dash-section {
+    padding: 1.25rem;
+    overflow-x: auto;
+  }
+
+  .requests-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.85rem 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .hero-banner {
+    padding: 1.65rem 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .category-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    font-size: 0.88rem;
+    padding: 0.85rem 1.1rem;
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
