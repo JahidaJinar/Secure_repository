@@ -22,7 +22,6 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Serve static files from React build (dist) or public
-const fs = require('fs');
 const distPath = path.join(__dirname, 'dist');
 const publicPath = path.join(__dirname, 'public');
 
