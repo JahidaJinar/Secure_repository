@@ -386,6 +386,7 @@ class FirebaseService {
   }
 
   async requestPasswordResetLink(email, customBaseUrl) {
+    // Note: We don't strictly check local users.json - user may be in Firestore only
     const users = this._readUsers();
     const user = users.find(u => (u.email || '').toLowerCase() === email.toLowerCase());
 
@@ -393,9 +394,10 @@ class FirebaseService {
       throw new Error('No registered account found with this email address.');
     }
 
+    // Always generate reset link - even if user only in Firestore
     const baseUrl = customBaseUrl || process.env.PUBLIC_APP_URL || 'http://localhost:3000/login';
     const resetLink = `${baseUrl}?mode=resetPassword&email=${encodeURIComponent(email)}`;
-    console.log('✅ Dynamic app password reset link generated:', resetLink);
+    console.log('✅ Dynamic app password reset link generated for:', email, '| Link:', resetLink);
 
     return {
       success: true,
