@@ -1,7 +1,14 @@
+const fs = require('fs');
+const path = require('path');
+
+// Load .env from /etc/secrets/.env (Render Secret Files) or local root
+if (fs.existsSync('/etc/secrets/.env')) {
+  require('dotenv').config({ path: '/etc/secrets/.env' });
+}
 require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 
 const projectRoutes = require('./routes/projects');
 const driveRoutes = require('./routes/drive');
