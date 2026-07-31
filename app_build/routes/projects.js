@@ -86,7 +86,12 @@ router.post('/auth/forgot-password', async (req, res) => {
     if (!email) {
       return res.json({ success: false, message: 'Department email is required' });
     }
-    const result = await firebaseService.requestPasswordResetLink(email.trim());
+
+    const host = req.get('host');
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+    const dynamicBaseUrl = `${protocol}://${host}/login`;
+
+    const result = await firebaseService.requestPasswordResetLink(email.trim(), dynamicBaseUrl);
     if (result.success && result.resetLink) {
       emailService.sendPasswordResetLinkEmail(email.trim(), result.resetLink);
     }

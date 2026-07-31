@@ -385,7 +385,7 @@ class FirebaseService {
     return { success: true, message: 'Password reset successfully! You can now log in with your new password.' };
   }
 
-  async requestPasswordResetLink(email) {
+  async requestPasswordResetLink(email, customBaseUrl) {
     const users = this._readUsers();
     const user = users.find(u => (u.email || '').toLowerCase() === email.toLowerCase());
 
@@ -393,9 +393,9 @@ class FirebaseService {
       throw new Error('No registered account found with this email address.');
     }
 
-    const baseUrl = process.env.PUBLIC_APP_URL || 'http://localhost:3000/login';
+    const baseUrl = customBaseUrl || process.env.PUBLIC_APP_URL || 'http://localhost:3000/login';
     const resetLink = `${baseUrl}?mode=resetPassword&email=${encodeURIComponent(email)}`;
-    console.log('✅ Custom app password reset link generated:', resetLink);
+    console.log('✅ Dynamic app password reset link generated:', resetLink);
 
     return {
       success: true,
