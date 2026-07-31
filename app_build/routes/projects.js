@@ -93,7 +93,7 @@ router.post('/auth/forgot-password', async (req, res) => {
 
     const result = await firebaseService.requestPasswordResetLink(email.trim(), dynamicBaseUrl);
     if (result.success && result.resetLink) {
-      emailService.sendPasswordResetLinkEmail(email.trim(), result.resetLink);
+      await emailService.sendPasswordResetLinkEmail(email.trim(), result.resetLink);
     }
     res.json(result);
   } catch (err) {

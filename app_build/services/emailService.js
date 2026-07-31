@@ -91,18 +91,21 @@ class EmailService {
 
     if (transporter) {
       try {
-        await transporter.sendMail({
+        const info = await transporter.sendMail({
           from: `"EdTech Repository" <${process.env.SMTP_USER}>`,
           to: userEmail,
           subject,
           text
         });
-        console.log(`✉️ Password reset link email sent to: ${userEmail}`);
+        console.log(`✉️ Password reset link email sent to: ${userEmail} | MessageId: ${info.messageId}`);
+        return true;
       } catch (err) {
         console.error(`⚠️ Error sending password reset email to ${userEmail}:`, err.message);
+        return false;
       }
     } else {
       console.log(`[SIMULATED EMAIL] To: ${userEmail} | Subject: ${subject} | Link: ${resetLink}`);
+      return false;
     }
   }
 }
