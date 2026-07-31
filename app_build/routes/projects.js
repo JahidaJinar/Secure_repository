@@ -62,6 +62,40 @@ router.post('/auth/login', async (req, res) => {
   }
 });
 
+// Reset user password
+router.post('/auth/reset-password', async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
+    if (!email || !newPassword) {
+      return res.json({ success: false, message: 'Email and new password are required' });
+    }
+    const result = await firebaseService.resetUserPassword({ email: email.trim(), newPassword: newPassword.trim() });
+    if (result.success) {
+      emailService.sendPasswordResetNotificationEmail(email.trim(), newPassword.trim());
+    }
+    res.json(result);
+  } catch (err) {
+    res.json({ success: false, message: err.message });
+  }
+});
+
+// Send password reset link to user email
+router.post('/auth/forgot-password', async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.json({ success: false, message: 'Department email is required' });
+    }
+    const result = await firebaseService.requestPasswordResetLink(email.trim());
+    if (result.success && result.resetLink) {
+      emailService.sendPasswordResetLinkEmail(email.trim(), result.resetLink);
+    }
+    res.json(result);
+  } catch (err) {
+    res.json({ success: false, message: err.message });
+  }
+});
+
 // Sync user profile to Firestore users collection
 router.post('/users/sync', async (req, res) => {
   try {
@@ -157,9 +191,11 @@ router.post('/:id/update-request', async (req, res) => {
       status
     );
 
-    // Send email notification to requester if approved
+    // Send email notification to requester
     if (status === 'approved') {
       emailService.sendApprovalNotificationEmail(requesterEmail, updatedProject.title, updatedProject.authorEmail);
+    } else if (status === 'rejected') {
+      emailService.sendRejectionNotificationEmail(requesterEmail, updatedProject.title, updatedProject.authorEmail);
     }
 
     res.json({ success: true, message: `Request status updated to ${status}`, project: updatedProject });

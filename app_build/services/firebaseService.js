@@ -345,6 +345,64 @@ class FirebaseService {
 
     return userObj;
   }
+
+  async resetUserPassword({ email, newPassword }) {
+    const users = this._readUsers();
+    let userIndex = users.findIndex(u => (u.email || '').toLowerCase() === email.toLowerCase());
+
+    if (userIndex === -1 && this.db) {
+      try {
+        const snapshot = await this.db.collection('users').where('email', '==', email).get();
+        if (!snapshot.empty) {
+          const doc = snapshot.docs[0];
+          const newHash = hashUserPassword(newPassword);
+          await doc.ref.update({ passwordHash: newHash, updatedAt: new Date().toISOString() });
+          return { success: true, message: 'Password reset successfully! You can now log in with your new password.' };
+        }
+      } catch (e) {
+        console.warn('Firestore password reset warning:', e.message);
+      }
+    }
+
+    if (userIndex === -1) {
+      throw new Error('No registered account found with this email address.');
+    }
+
+    const newHash = hashUserPassword(newPassword);
+    users[userIndex].passwordHash = newHash;
+    users[userIndex].updatedAt = new Date().toISOString();
+    this._writeUsers(users);
+
+    if (this.db) {
+      try {
+        const uid = users[userIndex].uid;
+        await this.db.collection('users').doc(uid).set({ passwordHash: newHash, updatedAt: new Date().toISOString() }, { merge: true });
+      } catch (err) {
+        console.error('Firestore password reset sync err:', err.message);
+      }
+    }
+
+    return { success: true, message: 'Password reset successfully! You can now log in with your new password.' };
+  }
+
+  async requestPasswordResetLink(email) {
+    const users = this._readUsers();
+    const user = users.find(u => (u.email || '').toLowerCase() === email.toLowerCase());
+
+    if (!user && !this.db) {
+      throw new Error('No registered account found with this email address.');
+    }
+
+    const baseUrl = process.env.PUBLIC_APP_URL || 'http://localhost:3000/login';
+    const resetLink = `${baseUrl}?mode=resetPassword&email=${encodeURIComponent(email)}`;
+    console.log('✅ Custom app password reset link generated:', resetLink);
+
+    return {
+      success: true,
+      message: '📩 Password reset link sent to your email inbox! Please check your email to reset your password.',
+      resetLink
+    };
+  }
 }
 
 module.exports = new FirebaseService();
