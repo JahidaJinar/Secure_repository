@@ -1,3 +1,6 @@
+import { initializeApp } from 'firebase/app';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+
 const apiKeyPart1 = 'AIzaSyBREB8RUE';
 const apiKeyPart2 = 'KJPzePJm4eB4PCEzeqB6c_tuk';
 
@@ -9,6 +12,15 @@ export const firebaseConfig = {
   messagingSenderId: "544171006717",
   appId: "1:544171006717:web:25644b59149d618fe4bc94"
 };
+
+// Initialize Firebase app and Auth
+const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseAuth = getAuth(firebaseApp);
+
+// Send official Firebase password reset email
+export async function sendFirebasePasswordResetEmail(email) {
+  await sendPasswordResetEmail(firebaseAuth, email);
+}
 
 export const AppAuth = {
   getCurrentUser() {

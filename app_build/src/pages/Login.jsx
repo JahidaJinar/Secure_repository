@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { AppAuth } from '../utils/firebaseConfig';
+import { AppAuth, sendFirebasePasswordResetEmail } from '../utils/firebaseConfig';
 
 export default function Login({ showToast }) {
   const navigate = useNavigate();
@@ -112,6 +112,7 @@ export default function Login({ showToast }) {
     }
 
     try {
+      // Step 1: Backend verifies user & syncs to Firebase Auth
       const res = await fetch('/api/projects/auth/forgot-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -120,24 +121,28 @@ export default function Login({ showToast }) {
 
       const text = await res.text();
       let data;
-      try {
-        data = JSON.parse(text);
-      } catch (e) {
+      try { data = JSON.parse(text); } catch (e) {
         showToast('❌ Server Error. Please try again.', 'error');
         return;
       }
 
       if (!data.success) {
-        showToast('❌ ' + (data.message || 'Failed to send reset email'), 'error');
+        showToast('❌ ' + (data.message || 'Failed to verify account'), 'error');
         return;
       }
 
-      showToast('📩 ' + data.message, 'success');
+      // Step 2: Firebase Client SDK sends official password reset email
+      await sendFirebasePasswordResetEmail(resetEmail.trim());
+      showToast('📩 Password reset link sent! Please check your email inbox.', 'success');
       setViewMode('login');
       setLoginEmail(resetEmail.trim());
     } catch (err) {
       console.error('Password reset request error:', err);
-      showToast('❌ Reset Error: ' + err.message, 'error');
+      if (err.code === 'auth/too-many-requests') {
+        showToast('⚠️ Too many requests. Please wait a few minutes and try again.', 'error');
+      } else {
+        showToast('❌ Error: ' + err.message, 'error');
+      }
     }
   };
 

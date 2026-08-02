@@ -79,7 +79,7 @@ router.post('/auth/reset-password', async (req, res) => {
   }
 });
 
-// Send password reset link to user email
+// Sync user to Firebase Auth so Firebase can send password reset email
 router.post('/auth/forgot-password', async (req, res) => {
   try {
     const { email } = req.body;
@@ -87,16 +87,44 @@ router.post('/auth/forgot-password', async (req, res) => {
       return res.json({ success: false, message: 'Department email is required' });
     }
 
-    const host = req.get('host');
-    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
-    const dynamicBaseUrl = `${protocol}://${host}/login`;
+    const trimmedEmail = email.trim().toLowerCase();
 
-    const result = await firebaseService.requestPasswordResetLink(email.trim(), dynamicBaseUrl);
-    if (result.success && result.resetLink) {
-      await emailService.sendPasswordResetLinkEmail(email.trim(), result.resetLink);
+    // Check user exists in our local system
+    const users = firebaseService._readUsers();
+    const localUser = users.find(u => (u.email || '').toLowerCase() === trimmedEmail);
+    if (!localUser) {
+      return res.json({ success: false, message: 'No registered account found with this email address.' });
     }
-    res.json(result);
+
+    // Sync user to Firebase Auth (so Firebase can send password reset email)
+    try {
+      const admin = require('firebase-admin');
+      if (admin.auth) {
+        try {
+          await admin.auth().getUserByEmail(trimmedEmail);
+          console.log('✅ User already exists in Firebase Auth:', trimmedEmail);
+        } catch (e) {
+          // Create in Firebase Auth if not exists
+          await admin.auth().createUser({
+            email: trimmedEmail,
+            displayName: localUser.displayName || trimmedEmail,
+            emailVerified: false
+          });
+          console.log('✅ User created in Firebase Auth:', trimmedEmail);
+        }
+      }
+    } catch (syncErr) {
+      console.warn('Firebase Auth sync warning:', syncErr.message);
+    }
+
+    // Return success - client will call Firebase sendPasswordResetEmail
+    res.json({
+      success: true,
+      firebaseReady: true,
+      message: 'Account verified. Sending Firebase reset email...'
+    });
   } catch (err) {
+    console.error('Forgot password error:', err.message);
     res.json({ success: false, message: err.message });
   }
 });
