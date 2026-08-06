@@ -317,8 +317,41 @@ class FirebaseService {
     }
 
     const inputHash = hashUserPassword(password);
-    if (user.passwordHash && user.passwordHash !== inputHash && user.passwordHash !== password) {
-      throw new Error('Incorrect account password!');
+    const localHashMatch = user.passwordHash && (user.passwordHash === inputHash || user.passwordHash === password);
+
+    if (!localHashMatch) {
+      // Fallback: Try Firebase Auth REST API (user may have reset via Firebase email link)
+      let firebaseVerified = false;
+      const apiKey = process.env.FIREBASE_WEB_API_KEY || 'AIzaSyBREB8RUEKJPzePJm4eB4PCEzeqB6c_tuk';
+      try {
+        const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
+        const fbRes = await fetch(
+          `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password, returnSecureToken: false })
+          }
+        );
+        const fbData = await fbRes.json();
+        if (fbData.localId) {
+          firebaseVerified = true;
+          // Sync new password hash to local users.json so next login works
+          const allUsers = this._readUsers();
+          const idx = allUsers.findIndex(u => (u.email || '').toLowerCase() === email.toLowerCase());
+          if (idx !== -1) {
+            allUsers[idx].passwordHash = inputHash;
+            this._writeUsers(allUsers);
+            console.log('✅ Password hash synced from Firebase Auth for:', email);
+          }
+        }
+      } catch (fbErr) {
+        console.warn('Firebase Auth REST verification failed:', fbErr.message);
+      }
+
+      if (!firebaseVerified) {
+        throw new Error('Incorrect account password!');
+      }
     }
 
     return { uid: user.uid, email: user.email, displayName: user.displayName || user.email.split('@')[0], isAuthor: true };
